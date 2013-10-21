@@ -1,0 +1,17 @@
+{
+  "name": "archer-lipsum-site",
+  "version": "0.0.0",
+  "description": "Website for archer lipsum",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "router": "~0.6.2",
+    "send": "~0.1.4",
+    "archer-lipsum": "0.0.1"
+  }
+}

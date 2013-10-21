@@ -1,0 +1,56 @@
+<html>
+<head>
+  <title>Archer Lipsum</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <style type="text/css">
+    body {
+      background: transparent url('http://images.wikia.com/archer/images/4/4d/Wallpaper_large_02.jpg') 50% -215px;
+    }
+    .page-header {
+      color: #FFF;
+    }
+    .content .container, .footer .container {
+      background: transparent url('/opaque.png');
+      margin-bottom: 20px;
+      padding: 16px;
+      color: #000;
+    }
+  </style>
+  <script type="text/javascript" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript">
+    function loadContent(character, paragraphCount) {
+      $.get('/api/' + character + '/paragraphs/' + paragraphCount, function(o) {
+        $("#lipsum").html(o.result.replace(/\n/g, "<br />"));
+      });
+    }
+    $(function(){
+      loadContent('sterling', 3);
+    });
+  </script>
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="page-header">
+        <h1>Archer Lipsum</h1>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="container">
+      <div id="lipsum"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <small class="pull-right">
+        <a href="https://github.com/sugendran/archer-lipsum">Source on Github</a>
+      </small>
+      <small>All this content was sourced from the <a href="http://archer.wikia.com/wiki/Archer_Wiki">Archer Wikia</a></small>
+    </div>
+    <div class="container">
+      <small>API Usage: {{ /api/&lt; sterling | malory &gt;/&lt; paragraphs | words &gt;/&lt; number &gt; }}</small>
+    </div>
+  </div>
+</body>
+</html>
